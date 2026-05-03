@@ -417,6 +417,6 @@ app.get("*", (_, res) =>
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`PHANTOM TRACE :: ELITE running on :${PORT}`);
-  console.log(`DIST path: ${DIST}`);
+  console.log(`PUBLIC path: ${PUBLIC}`);
   console.log(`FILES path: ${FILES_DIR}`);
 });
