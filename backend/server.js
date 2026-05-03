@@ -5,12 +5,11 @@ const path    = require("path");
 const app = express();
 app.use(express.json());
 
-// __dirname = /backend on Render (start command: node backend/server.js)
-// Resolve dist relative to repo root regardless of where node is invoked from
+// public/ is built into the same backend/ folder — always correct path
+const PUBLIC    = path.join(__dirname, "public");
 const REPO_ROOT = path.resolve(__dirname, "..");
-const DIST      = path.join(REPO_ROOT, "frontend", "dist");
 const FILES_DIR = path.join(REPO_ROOT, "files");
-app.use(express.static(DIST));
+app.use(express.static(PUBLIC));
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // SESSION STORE
@@ -412,7 +411,7 @@ app.get("/api/status", (req, res) => {
 app.get("/files/:name", (req, res) => res.redirect(`/api/files/${req.params.name}`));
 
 app.get("*", (_, res) =>
-  res.sendFile(path.join(DIST, "index.html"))
+  res.sendFile(path.join(PUBLIC, "index.html"))
 );
 
 const PORT = process.env.PORT || 3000;
