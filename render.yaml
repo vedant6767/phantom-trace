@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: phantom-trace
+    runtime: node
+    rootDir: .
+    buildCommand: npm run build:all
+    startCommand: node backend/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000

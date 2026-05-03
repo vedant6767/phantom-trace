@@ -1,0 +1,36 @@
+=== PHANTOM TRACE :: FORENSIC DUMP ===
+Memory acquisition timestamp: 2026-05-03T12:04:59.450Z
+Acquisition tool: phantom_mem_acq v2.3.1
+
+[BLOCK 0x00] METADATA
+  host: phantom-node-07
+  kernel: 5.15.0-phantom
+  uptime: 847293s
+
+[BLOCK 0x01] PROCESS TABLE (PARTIAL)
+  PID 1    init
+  PID 412  phantom_svc
+  PID 413  auth_monitor
+  PID 999  [REDACTED]
+
+[BLOCK 0x02] NETWORK ARTIFACTS
+  50bbaa5874f584ac2c3d152c5d10a3c01c3cdb87
+  21b4fb93db5c88fb331819d77f59c9eea0ad2250
+
+[BLOCK 0x03] ENCODED ARTIFACT (MULTI-LAYER)
+  LAYER_DATA: eHF1VRx1SHdFG3pZXwcUeG0=
+  DECOY_1: mgkMWdgWnPflvViIopiLQz8NXNa33UWe
+  DECOY_2: ZmxhZ3tmYWtlX2ZvcmVuc2ljX3BhdGh9
+  DECOY_3: 0aLzxiRlFzJBEvRjqRFbtO3j
+
+[BLOCK 0x04] EXIF REMNANTS
+  GPS: 37.7749° N, 122.4194° W
+  Device: PHANTOM-CAM-X1
+  Comment: 71ac74c3cb89cce9c4a7
+
+[BLOCK 0x05] STEGO HINT
+  Transformation pipeline: B64 → XOR(0x2F) → B85 → plaintext
+  Final answer = SHA1(plaintext + session_salt)[-32:]
+
+[BLOCK 0xFF] CHECKSUM
+  da9b758e625200059639ee00d2741f96b1cf04e925be1426adff570a55839e5c

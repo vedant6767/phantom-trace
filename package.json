@@ -1,0 +1,8 @@
+{
+  "name": "phantom-trace",
+  "version": "1.0.0",
+  "scripts": {
+    "build:all": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend && node files/generate_files.js",
+    "start": "node backend/server.js"
+  }
+}
