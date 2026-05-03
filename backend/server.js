@@ -5,9 +5,11 @@ const path    = require("path");
 const app = express();
 app.use(express.json());
 
-// Works both locally (backend/) and on Render (repo root)
-const DIST = path.join(__dirname, "../frontend/dist");
-const FILES_DIR = path.join(__dirname, "../files");
+// __dirname = /backend on Render (start command: node backend/server.js)
+// Resolve dist relative to repo root regardless of where node is invoked from
+const REPO_ROOT = path.resolve(__dirname, "..");
+const DIST      = path.join(REPO_ROOT, "frontend", "dist");
+const FILES_DIR = path.join(REPO_ROOT, "files");
 app.use(express.static(DIST));
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -414,4 +416,8 @@ app.get("*", (_, res) =>
 );
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`PHANTOM TRACE :: ELITE running on :${PORT}`));
+app.listen(PORT, () => {
+  console.log(`PHANTOM TRACE :: ELITE running on :${PORT}`);
+  console.log(`DIST path: ${DIST}`);
+  console.log(`FILES path: ${FILES_DIR}`);
+});
