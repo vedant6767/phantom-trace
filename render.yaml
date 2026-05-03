@@ -2,8 +2,7 @@ services:
   - type: web
     name: phantom-trace
     runtime: node
-    rootDir: .
-    buildCommand: npm run build:all
+    buildCommand: npm install --prefix backend && node files/generate_files.js
     startCommand: node backend/server.js
     envVars:
       - key: NODE_ENV
