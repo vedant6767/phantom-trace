@@ -4,7 +4,11 @@ const path    = require("path");
 
 const app = express();
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+// Works both locally (backend/) and on Render (repo root)
+const DIST = path.join(__dirname, "../frontend/dist");
+const FILES_DIR = path.join(__dirname, "../files");
+app.use(express.static(DIST));
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // SESSION STORE
@@ -406,7 +410,7 @@ app.get("/api/status", (req, res) => {
 app.get("/files/:name", (req, res) => res.redirect(`/api/files/${req.params.name}`));
 
 app.get("*", (_, res) =>
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))
+  res.sendFile(path.join(DIST, "index.html"))
 );
 
 const PORT = process.env.PORT || 3000;
