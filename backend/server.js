@@ -373,7 +373,7 @@ app.post("/api/final", (req, res) => {
     return res.json({ msg: fake(), status: "ok" });
 
   if (input === finalHash(s))
-    return res.json({ msg: "HW{--Well done Babes-- ;) }", status: "ok" });
+    return res.json({ msg: "HW{ ...... [ACCESS_GRANTED]: )LEVEL++...... }", status: "ok" });
 
   s.wrongAttempts++;
   const delay = wrongDelay(s.wrongAttempts);
